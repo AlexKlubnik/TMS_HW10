@@ -5,5 +5,7 @@ public class StringHW {
         String documentNumber = "0123-abc-4567-def-8g9h";
 
         StringMethods.docNumbers(documentNumber);
+        System.out.println("\n-----------------------------");
+        StringMethods.numberWithoutLetters(documentNumber);
     }
 }

@@ -18,6 +18,17 @@ public class StringMethods {
         }
     }
 
+
+    static void numberWithoutLetters(String documentNumber) {
+        char[] arr = documentNumber.toCharArray();
+        for (int i = 0; i < arr.length; i++) {
+            if (Character.isLetter(arr[i]) && !(Character.isDigit(arr[i - 1]))) {
+                arr[i] = '*';
+            }
+            System.out.print(arr[i]);
+        }
+    }
+
 }
 
 
