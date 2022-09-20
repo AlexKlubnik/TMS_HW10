@@ -1,70 +1,61 @@
 package HW10;
 
-import java.util.StringTokenizer;
-
 public class StringMethods {
 
     String documentNumber;
 
-    public StringMethods() {
+    static void printDocNumbers(String documentNumber) {
+
+        System.out.println(documentNumber.substring(0, 4) + documentNumber.substring(9, 13));
+
     }
 
-    static void docNumbers(String documentNumber) {
+    static void printNumberWithoutLetters(String documentNumber) {
 
-        String[] arr = documentNumber.split("-");
-
-        for (int i = 0; i < arr.length; i++) {
-
-            if (i % 2 == 0 && i < 3) {
-                System.out.print(arr[i]);
-            }
-        }
+        documentNumber = documentNumber.replace((documentNumber.substring(5, 8)), "***");
+        documentNumber = documentNumber.replace((documentNumber.substring(14, 17)), "***");
+        System.out.println(documentNumber);
     }
 
-
-    static void numberWithoutLetters(String documentNumber) {
-        char[] arr = documentNumber.toCharArray();
-        for (int i = 0; i < arr.length; i++) {
-            if (Character.isLetter(arr[i]) && !(Character.isDigit(arr[i - 1]))) {
-                arr[i] = '*';
-            }
-            System.out.print(arr[i]);
-        }
-    }
-
-    static void onlyLetters(String documentNumber) {
-
+    static void printOnlyLetters(String documentNumber) {
         StringBuilder sb = new StringBuilder();
-
-        documentNumber.toLowerCase();
 
         for (int i = 0; i < documentNumber.length(); i++) {
             if (Character.isLetter(documentNumber.charAt(i))) {
                 sb.append(documentNumber.charAt(i));
-            } else if (i > 0 && documentNumber.charAt(i - 1) == '-') {
-                sb.append('/');
-            } else if (i == documentNumber.length() - 2) {
+            } else if (i > 0 && documentNumber.charAt(i - 1) == '-' || i == documentNumber.length() - 2) {
                 sb.append('/');
             }
-
         }
         System.out.println(sb);
     }
 
-    static void onlyLetters1(String documentNumber) {
+    static void printOnlyLetters1(String documentNumber) {
         StringBuilder sb = new StringBuilder();
 
         for (int i = 0; i < documentNumber.length(); i++) {
             if (Character.isLetter(documentNumber.charAt(i))) {
                 sb.append(documentNumber.charAt(i));
-            } else if (i > 0 && documentNumber.charAt(i - 1) == '-') {
-                sb.append('/');
-            } else if (i == documentNumber.length() - 2) {
+            } else if (i > 0 && documentNumber.charAt(i - 1) == '-' || i == documentNumber.length() - 2) {
                 sb.append('/');
             }
         }
         System.out.println("Letters:" + sb.toString().toUpperCase());
     }
+
+    static void containsAbc(String documentNumber) {
+
+        System.out.println(documentNumber.toLowerCase().contains("abc"));
+    }
+
+    static void startsWith555(String documentNumber) {
+        System.out.println(documentNumber.startsWith("555"));
+    }
+
+    static void endsWith1a2b(String documentNumber) {
+        System.out.println(documentNumber.endsWith("1a2b"));
+    }
+
 }
 
 
