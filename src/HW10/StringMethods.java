@@ -18,29 +18,44 @@ public class StringMethods {
     }
 
     static void printOnlyLetters(String documentNumber) {
-        StringBuilder sb = new StringBuilder();
+        documentNumber = documentNumber.toLowerCase();
 
-        for (int i = 0; i < documentNumber.length(); i++) {
-            if (Character.isLetter(documentNumber.charAt(i))) {
-                sb.append(documentNumber.charAt(i));
-            } else if (i > 0 && documentNumber.charAt(i - 1) == '-' || i == documentNumber.length() - 2) {
-                sb.append('/');
-            }
-        }
-        System.out.println(sb);
+        System.out.println(documentNumber.substring(5, 8) + '/'
+                        + documentNumber.substring(14, 17) + '/'
+                        + documentNumber.charAt(19) + '/'
+                        + documentNumber.charAt(21));
+
+//        for (int i = 0; i < documentNumber.length(); i++) {
+//            if (Character.isLetter(documentNumber.charAt(i))) {
+//                onlyLetters.append(documentNumber.charAt(i));
+//            } else if (i > 0 && documentNumber.charAt(i - 1) == '-' || i == documentNumber.length() - 2) {
+//                onlyLetters.append('/');
+//            }
+//        }
+        //      System.out.println(onlyLetters);
     }
 
     static void printOnlyLetters1(String documentNumber) {
-        StringBuilder sb = new StringBuilder();
 
-        for (int i = 0; i < documentNumber.length(); i++) {
-            if (Character.isLetter(documentNumber.charAt(i))) {
-                sb.append(documentNumber.charAt(i));
-            } else if (i > 0 && documentNumber.charAt(i - 1) == '-' || i == documentNumber.length() - 2) {
-                sb.append('/');
-            }
-        }
-        System.out.println("Letters:" + sb.toString().toUpperCase());
+        StringBuilder onlyLetters = new StringBuilder();
+
+        onlyLetters
+                .append(documentNumber, 5, 8)
+                .append('/')
+                .append(documentNumber, 14, 17)
+                .append('/')
+                .append(documentNumber.charAt(19))
+                .append('/')
+                .append(documentNumber.charAt(21));
+
+//        for (int i = 0; i < documentNumber.length(); i++) {
+//            if (Character.isLetter(documentNumber.charAt(i))) {
+//                onlyLetters.append(documentNumber.charAt(i));
+//            } else if (i > 0 && documentNumber.charAt(i - 1) == '-' || i == documentNumber.length() - 2) {
+//                onlyLetters.append('/');
+//            }
+//        }
+        System.out.println("Letters:" + onlyLetters.toString().toUpperCase());
     }
 
     static void containsAbc(String documentNumber) {

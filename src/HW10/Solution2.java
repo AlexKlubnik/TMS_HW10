@@ -8,13 +8,15 @@ public class Solution2 {
 
         String smallestWord =
                 Arrays.stream(str.split("\\W+"))
-                        .min((word1, word2) -> word1.length() - word2.length())
+                        .sorted((word1, word2) -> word2.length() - word1.length())
+                        .reduce((word1, word2) -> word2)
                         .get();
         System.out.println("Smallest word is: " + smallestWord);
 
         String biggestWord =
                 Arrays.stream(str.split("\\W+"))
-                        .max((word1, word2) -> word1.length() - word2.length())
+                        .sorted((word1, word2) -> word1.length() - word2.length())
+                        .reduce((word1, word2) -> word2)
                         .get();
         System.out.println("Biggest word is: " + biggestWord);
 
