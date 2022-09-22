@@ -5,10 +5,19 @@ public class Solution5 {
         String str = "Hello world";
 
         StringBuilder doubledStr = new StringBuilder();
-        for (int i = 0; i < str.length(); i++) {
-            doubledStr.append(str.charAt(i));
-            doubledStr.append(str.charAt(i));
+
+        for (char current : str.toCharArray()) {
+            doubledStr
+                    .append(current)
+                    .append(current);
         }
+
+//        for (int i = 0; i < str.length(); i++) {
+//            char current = str.charAt(i);
+//            doubledStr
+//                    .append(current)
+//                    .append(current);
+//        }
         System.out.println(doubledStr);
     }
 }
