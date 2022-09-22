@@ -16,25 +16,24 @@ public class Solution4 {
             int wordNumber = scan.nextInt() - 1;
 
             if (wordNumber >= 0 && wordNumber < strArray.length) {
-                String temp = strArray[wordNumber];
-
-                for (int i = 0; i < temp.length() / 2; ) {
-                    if (temp.charAt(i) != temp.charAt(temp.length() - 1 - i)){
-                        System.out.println("This word isn't a palindrome.");
-                        break;
-                    }
-                    if (temp.charAt(i) == temp.charAt(temp.length() - 1 - i))
-                        i++;
-
-                    if (i == temp.length() / 2 ) {
-                        System.out.println("This word is a palindrome.");
-                    }
-                }
+                if (isPalindrome(strArray[wordNumber]))
+                    System.out.println("This word is a palindrome.");
+                else System.out.println("This word isn't a palindrome.");
                 break;
             } else
                 System.out.println("Type word number from 1 to " + strArray.length);
         }
         scan.close();
+    }
+
+    public static boolean isPalindrome(String word) {
+        char[] letters = word.toCharArray();
+        int length = letters.length;
+        for (int i = 0; i < length / 2; i++) {
+            if (letters[i] != letters[length - 1 - i])
+                return false;
+        }
+        return true;
     }
 
 }
